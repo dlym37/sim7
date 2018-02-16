@@ -29,3 +29,7 @@
 .urlInput {
   margin: 30px;
 }
+
+.flexRow {
+  display: flex;
+}

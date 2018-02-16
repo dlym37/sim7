@@ -23,6 +23,7 @@ const express = require('express'),
 
   app.get('/get/animals', animals_ctrl.get_animals);
   app.get('/get/details/:id', animals_ctrl.get_details);
+  app.post('/post/animal', animals_ctrl.create_animal);
 
 
   app.listen(6007, () => {

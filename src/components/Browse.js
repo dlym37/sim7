@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
-import {getPet} from '../ducks/reducer'
+import {getPet} from '../ducks/reducer';
+import {createAnimal} from '../ducks/reducer';
+import {grabName} from '../ducks/reducer';
+import {grabUrl} from '../ducks/reducer';
+import {grabWeight} from '../ducks/reducer';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -27,8 +31,16 @@ import { connect } from 'react-redux';
             )
         })
         return(
+            <div className='flexRow'>
             <div className='login'>
                 {animals}
+            </div>
+            <div>
+                <input onChange={(e) => this.props.grabName(e.target.value)}placeholder='name'/>
+                <input onChange={(e) => this.props.grabUrl(e.target.value)} placeholder='imageURL'/>
+                <input onChange={(e) => this.props.grabWeight(e.target.value)}placeholder='weight'/>
+                <button onClick={this.props.createAnimal}>Add animal</button>
+            </div>
             </div>
         )
     }
@@ -41,4 +53,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {getPet})(Browse);
+export default connect(mapStateToProps, {getPet, grabName, grabUrl, grabWeight, createAnimal})(Browse);
